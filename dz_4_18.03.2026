@@ -1,0 +1,27 @@
+# Миксин для печати
+class PrintMixin:
+    def print_document(self, text):
+        print(text)
+
+
+# Миксин для сохранения
+class SaveMixin:
+    def save_document(self, text):
+        print(f"Сохранено: {text}")
+
+
+# Основной класс, собирающий функционал
+class Document(PrintMixin, SaveMixin):
+    #  Метод, использующий способности обоих миксинов
+    def create(self, content):
+        self.print_document(content)
+        self.save_document(content)
+
+
+# проверка
+if __name__ == "__main__":
+    # Создаем объект документа
+    doc = Document()
+
+    # Вызываем метод create, который запустит и печать, и сохранение
+    doc.create("Важный документ")
