@@ -1,0 +1,27 @@
+# Создаем миксин для еды
+class EatMixin:
+    def eat(self):
+        print("Сотрудник ест")
+
+# Создаем миксин для сна
+class SleepMixin:
+    def sleep(self):
+        print("Сотрудник спит")
+
+# Создаем класс Worker, собирая его из кирпичиков-миксинов
+class Worker(EatMixin, SleepMixin):
+    def __init__(self, name):
+        self.name = name
+
+    def work(self):
+        print(f"{self.name} работает")
+
+# Блок проверки
+if __name__ == "__main__":
+    # Создаем работника
+    employee = Worker("Алексей")
+
+    # Имитируем режим дня
+    employee.eat()    # Метод из EatMixin
+    employee.work()   # Свой собственный метод
+    employee.sleep()  # Метод из SleepMixin
