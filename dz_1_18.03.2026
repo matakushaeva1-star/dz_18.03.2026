@@ -1,0 +1,26 @@
+class Wolf:
+    def howl(self):
+        print("Уууу!")
+
+class Dog:
+    def bark(self):
+        print("Гав!")
+
+# Оборотень наследует всё и от Wolf, и от Dog
+class Werewolf(Wolf, Dog):
+    def transform(self):
+        print("Превращение!")
+
+# Проверка
+if __name__ == "__main__":
+    # Создаем оборотня
+    monster = Werewolf()
+
+    # Заставляем его выполнять действия всех предков
+    monster.howl()      # От волка
+    monster.bark()      # От собаки
+    monster.transform() # Свое собственное
+
+    # выводим MRO (Method Resolution Order)
+    print("\nПорядок поиска методов (MRO):")
+    print(Werewolf.__mro__)
