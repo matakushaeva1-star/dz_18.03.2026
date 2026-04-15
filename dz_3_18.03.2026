@@ -1,0 +1,28 @@
+class A:
+    def show(self):
+        print("Класс A")
+
+class B:
+    def show(self):
+        print("Класс B")
+
+# Вариант 1:
+class C(A, B):
+    def test(self):
+        self.show()
+
+# Вариант 2 (для проверки):
+# class C(B, A):
+#     def test(self):
+#         self.show()
+
+# Блок проверки
+if __name__ == "__main__":
+    obj = C()
+    obj.test()
+
+
+    # Был вызван класс A.
+    # Потому что в списке наследования class C(A, B) класс A стоит ПЕРВЫМ.
+    # Python ищет метод слева направо. Если мы поменяем порядок на (B, A),
+    # то вызовется класс B.
